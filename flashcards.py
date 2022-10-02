@@ -1,15 +1,9 @@
-from datetime import datetime
-
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def welcome():
-    return "Welcome to my Flash Cards application!"
-
-
-@app.route("/date")
-def date():
-    return f"This page was served at {datetime.now()}"
+    return render_template("welcome.html",
+                           message="Message from a view!")
